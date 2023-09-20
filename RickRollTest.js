@@ -2,10 +2,10 @@ const { Builder, By, Key } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 
 (async function playVideo() {
-    // Set Chrome options to allow autoplay without user interaction considering most of the internet has a non autoplay policy i guess.
-    // had to manually turn off the autoplay policy that most people have enabled. below shown is the script turning it off when ran so it always plays. :D
     const options = new chrome.Options();
     options.addArguments("--autoplay-policy=no-user-gesture-required");
+    options.addArguments("--incognito");
+    options.addArguments("--disable-background-networking");
 
     let driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
 
@@ -15,7 +15,7 @@ const chrome = require('selenium-webdriver/chrome');
         await driver.sleep(2000); 
         await driver.findElement(By.css('body')).sendKeys(Key.SPACE);
 
-        await driver.sleep(1000);
+        await driver.sleep(2000);
         let videoElement = await driver.findElement(By.css('video'));
         let actions = driver.actions();
         await actions.doubleClick(videoElement).perform();
