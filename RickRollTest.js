@@ -15,6 +15,9 @@ const chrome = require('selenium-webdriver/chrome');
         await driver.sleep(2000); 
         await driver.findElement(By.css('body')).sendKeys(Key.SPACE);
 
+        await driver.sleep(2000);
+        await driver.findElement(By.css('body')).sendKeys('f');
+
     } catch (error) {
         console.error('Error occurred:', error);
     } finally {
