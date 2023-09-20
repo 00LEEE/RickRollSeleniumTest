@@ -1,0 +1,12 @@
+{
+  "name": "rickrollseleniumtest",
+  "version": "1.0.0",
+  "description": "Selenium test to rick roll your friends.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
