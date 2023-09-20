@@ -15,8 +15,10 @@ const chrome = require('selenium-webdriver/chrome');
         await driver.sleep(2000); 
         await driver.findElement(By.css('body')).sendKeys(Key.SPACE);
 
-        await driver.sleep(4000);
-        await driver.findElement(By.css('body')).sendKeys('f');
+        await driver.sleep(2000);
+        let videoElement = await driver.findElement(By.css('video'));
+        let actions = driver.actions();
+        await actions.doubleClick(videoElement).perform();
 
     } catch (error) {
         console.error('Error occurred:', error);
