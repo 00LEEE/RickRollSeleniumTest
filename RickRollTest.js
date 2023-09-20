@@ -6,10 +6,14 @@ const chrome = require('selenium-webdriver/chrome');
 
     try {
         await driver.get('https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley');
+
+        // Give some time for the video page to load and then click the video to play since wasn't playing in my last commit.
+        await driver.sleep(2000); 
+        await driver.findElement(By.css('video')).click();
+
     } catch (error) {
         console.error('Error occurred:', error);
     } finally {
-        // terminates browser after test is ran.
-        // await driver.quit();
+
     }
 })();
