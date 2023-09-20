@@ -8,8 +8,9 @@ const chrome = require('selenium-webdriver/chrome');
         await driver.get('https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley');
 
         // Give some time for the video page to load and then click the video to play since wasn't playing in my last commit.
+        // changed click action to spacebar since often times users have "spacebar" as a pause play toggle.
         await driver.sleep(2000); 
-        await driver.findElement(By.css('video')).click();
+        await driver.findElement(By.css('body')).sendKeys(Key.SPACE);
 
     } catch (error) {
         console.error('Error occurred:', error);
